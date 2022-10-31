@@ -2,7 +2,7 @@
 {
     public interface IRepositorio<TObjeto,TId >
     {
-        TObjeto ObtenerTodos();
+        IEnumerable<TObjeto> ObtenerTodos();
         TObjeto Obtener(TId id);
         void Agregar(TObjeto objeto);
         void Eliminar(TId id);
