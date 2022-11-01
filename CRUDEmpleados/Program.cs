@@ -1,8 +1,17 @@
+using CRUDEmpleados.Data;
+using CRUDEmpleados.Models;
+using CRUDEmpleados.Repositorios;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IRepositorio<Empleado,int>, EmpleadoRepositorio>();
+builder.Services.AddDbContext<EmpleadoDbContext>(opts =>
+{
+    opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Empleado>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 h1"><p>Empleados</p></div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary mt-3" asp-controller="Empleado" asp-action="Agregar">Agregar</a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Fecha de nacimineto</th>
+            <th>Sector</th>
+            <th>Sueldo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Empleado emp in Model){
+            <tr>
+                <td>
+                    @emp.Apellido
+                </td>
+                <td>
+                    @emp.Nombre
+                </td>
+                <td>
+                    @emp.FechaNacimiento
+                </td>
+                <td>
+                    @emp.Sector
+                </td>
+                <td>
+                    @emp.Sueldo
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
