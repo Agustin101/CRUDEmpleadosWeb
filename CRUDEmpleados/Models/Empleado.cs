@@ -8,6 +8,7 @@ namespace CRUDEmpleados.Models
         public int Id { get; set; }
         public string Apellido { get; set; }
         public string Nombre { get; set; }
+        [DataType(DataType.Date)]
         public DateTime FechaNacimiento { get; set; }
         public string Sector { get; set; }
         public decimal Sueldo { get; set; }

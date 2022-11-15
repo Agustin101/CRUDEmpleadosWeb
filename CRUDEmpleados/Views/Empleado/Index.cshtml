@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <div class="col-6 h1"><p>Empleados</p></div>
         <div class="col-6 text-end">
@@ -12,33 +12,42 @@
     </div>
 </div>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Apellido</th>
             <th>Nombre</th>
-            <th>Fecha de nacimineto</th>
+            <th>Fecha de nacimiento</th>
             <th>Sector</th>
             <th>Sueldo</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach(Empleado emp in Model){
             <tr>
                 <td>
-                    @emp.Apellido
+                    @Html.DisplayFor(m => emp.Apellido)
                 </td>
                 <td>
-                    @emp.Nombre
+                    @Html.DisplayFor(m => emp.Nombre)
                 </td>
                 <td>
-                    @emp.FechaNacimiento
+                    @Html.DisplayFor(m => emp.FechaNacimiento)
                 </td>
                 <td>
-                    @emp.Sector
+                    @Html.DisplayFor(m => emp.Sector)
                 </td>
                 <td>
-                    @emp.Sueldo
+                    @Html.DisplayFor(m => emp.Sueldo)
+                </td>
+                <td>
+                    <div class="container row justify-content-sm-evenly">
+                        <a type="submit" asp-controller="Empleado" asp-action="Eliminar" asp-route-id="@emp.Id" class="btn btn-danger" style="width:40%">Eliminar</a>
+                        <a type="submit" asp-controller="Empleado" asp-action="Editar" asp-route-id="@emp.Id" class="btn btn-secondary" style="width:40%">Editar</a>
+
+                    </div>
+                   
                 </td>
             </tr>
         }

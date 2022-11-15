@@ -1,43 +1,39 @@
 ﻿@model Empleado
 @{
-    ViewData["Title"] = "Agregar";
+    ViewData["Title"] = "Eliminar";
 }
 
-<form method="post">
+<form method="post" asp-action="Eliminar">
     <div class="border p-3 mt-4 border-dark w-50" style="margin-left:300px">
         <div class="row text-center">
-            <p class="h2">Agregar empleado </p>
+            <p class="h2">Eliminar empleado </p>
         </div>
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <div>
-            <label asp-for="Nombre" class="m-2" >Nombre</label>
-            <input asp-for="Nombre" class="form-control w-50" />
+        <div asp-validation-summary="All"></div>
+        <div >
+            <label asp-for="Nombre" class="m-2">Nombre</label>
+            <input asp-for="Nombre" disabled class="form-control w-50 disabled" />
         </div>
         <div>
             <label asp-for="Apellido" class="m-2">Apellido</label>
-            <input asp-for="Apellido" class="form-control w-50" />
+            <input asp-for="Apellido" disabled class="form-control w-50 blo" />
         </div>
         <div>
             <label asp-for="FechaNacimiento" class="m-2">Fecha de nacimiento</label>
-            <input asp-for="FechaNacimiento" class="form-control w-50" />
+            <input asp-for="FechaNacimiento" disabled class="form-control w-50" />
         </div>
         <div>
             <label asp-for="Sector" class="m-2">Sector</label>
-            <input asp-for="Sector" class="form-control w-50" />
+            <input asp-for="Sector" disabled class="form-control w-50" />
         </div>
         <div>
             <label asp-for="Sueldo" class="m-2">Sueldo</label>
-            <input asp-for="Sueldo" class="form-control w-50" />
+            <input asp-for="Sueldo" disabled class="form-control w-50" />
         </div>
         <div class="row justify-content-center">
-            <button class="btn btn-dark mt-3 m-3" style="width:150px">Agregar</button>
+            <button type="submit" class="btn btn-danger mt-3 m-3" style="width:150px">Eliminar</button>
             <a class="btn btn-dark mt-3 m-3" style="width:150px" asp-controller="Empleado" asp-action="Index">Volver al menu</a>
         </div>
 
     </div>
 </form>
-@section Scripts{
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
-    }
+

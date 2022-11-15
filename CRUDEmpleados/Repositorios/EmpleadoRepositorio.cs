@@ -48,5 +48,10 @@ namespace CRUDEmpleados.Repositorios
         {
             return _context.Empleados;
         }
+
+        public bool Existe(int id)
+        {
+            return _context.Empleados.Any(e => e.Id == id);
+        }
     }
 }
